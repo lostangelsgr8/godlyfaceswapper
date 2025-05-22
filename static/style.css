@@ -1,30 +1,22 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #0e0e0e;
-  color: #f0f0f0;
-  margin: 0;
-  padding: 40px;
+  background-color: #0f0f0f;
+  color: #f8f8f8;
   text-align: center;
+  padding: 2em;
 }
 
 .container {
+  background: #1a1a1a;
+  padding: 30px;
+  border-radius: 12px;
   max-width: 800px;
   margin: auto;
-  padding: 20px;
-  background: #1c1c1c;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 30px rgba(0,0,0,0.7);
 }
 
 h1 {
-  font-size: 2.2em;
-  color: #a569ff;
-}
-
-.subtitle {
-  margin-top: -10px;
-  margin-bottom: 30px;
-  color: #ccc;
+  color: #a875ff;
 }
 
 .upload-section {
@@ -32,47 +24,47 @@ h1 {
 }
 
 input[type="file"] {
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px;
   margin-top: 8px;
 }
 
-.button {
-  background: #a569ff;
+button {
+  padding: 12px 25px;
+  font-size: 16px;
+  background-color: #a875ff;
   color: white;
   border: none;
-  padding: 14px 28px;
-  font-size: 1em;
   border-radius: 6px;
   cursor: pointer;
-  margin-top: 20px;
 }
 
-.button:hover {
-  background: #c084ff;
+button:hover {
+  background-color: #c59fff;
 }
 
-.grid {
+.gallery {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  margin-top: 30px;
 }
 
-.preview {
-  background: #292929;
+.gallery-item {
+  background: #222;
   padding: 10px;
   border-radius: 8px;
+}
+
+.gallery-item img {
   width: 200px;
+  border-radius: 6px;
 }
 
-.preview img {
-  width: 100%;
-  border-radius: 4px;
-}
-
-.download-btn {
-  display: block;
-  margin-top: 10px;
-  color: #00ffe0;
+.back-button {
+  display: inline-block;
+  margin-top: 2em;
+  color: #a875ff;
   text-decoration: none;
 }

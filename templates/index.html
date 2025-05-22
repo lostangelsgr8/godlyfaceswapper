@@ -2,26 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Godly Face Swapper</title>
+  <title>GodlyFaceSwapper – Free Face Swap</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <div class="container">
-    <h1>🔥 Godly Face Swapper</h1>
-    <p class="subtitle">Unlimited AI face swaps. Totally free. No tokens.</p>
-
-    <form action="/process" method="post" enctype="multipart/form-data">
+    <h1>🧠 GodlyFaceSwapper</h1>
+    <p>Unlimited face swaps. No tokens. 100% free.</p>
+    <form method="POST" action="/swap" enctype="multipart/form-data">
       <div class="upload-section">
-        <label>Upload Face Image:</label>
-        <input type="file" name="face_image" accept="image/*" required>
+        <label>Upload face image:</label>
+        <input type="file" name="face" accept="image/*" required>
       </div>
-
       <div class="upload-section">
-        <label>Upload Target Images (Unlimited):</label>
-        <input type="file" name="target_images" accept="image/*" multiple required>
+        <label>Upload target images (bulk allowed):</label>
+        <input type="file" name="targets" accept="image/*" multiple required>
       </div>
-
-      <button type="submit" class="button">🚀 Start Face Swap</button>
+      <button type="submit">🔥 Start Swapping</button>
     </form>
   </div>
 </body>
