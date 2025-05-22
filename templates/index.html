@@ -2,84 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Supawork Clone – Unlimited Batch Face Swap</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background-color: #0e0e0e;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 50px;
-    }
-    .container {
-      border: 1px solid #333;
-      padding: 30px;
-      border-radius: 12px;
-      display: inline-block;
-      background-color: #1a1a1a;
-    }
-    input, button {
-      margin: 10px;
-      padding: 10px;
-      font-size: 16px;
-    }
-    button {
-      background-color: #5a00f0;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #7b33ff;
-    }
-    #progress {
-      margin-top: 20px;
-      font-weight: bold;
-      color: #00ffcc;
-    }
-  </style>
+  <title>Godly Face Swapper</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <div class="container">
-    <h1>🧠 Supawork Clone – Unlimited Batch Face Swap</h1>
-    <form id="uploadForm" enctype="multipart/form-data">
-      <p><strong>Upload a Face Image</strong> (used for all target swaps):</p>
-      <input type="file" name="face_img" accept="image/*" required><br>
+    <h1>🔥 Godly Face Swapper</h1>
+    <p class="subtitle">Unlimited AI face swaps. Totally free. No tokens.</p>
 
-      <p><strong>Upload Any Number of Target Images:</strong></p>
-      <input type="file" name="template_imgs" multiple required accept="image/*"><br><br>
+    <form action="/process" method="post" enctype="multipart/form-data">
+      <div class="upload-section">
+        <label>Upload Face Image:</label>
+        <input type="file" name="face_image" accept="image/*" required>
+      </div>
 
-      <button type="submit">🚀 Swap All Faces + Download ZIP</button>
+      <div class="upload-section">
+        <label>Upload Target Images (Unlimited):</label>
+        <input type="file" name="target_images" accept="image/*" multiple required>
+      </div>
+
+      <button type="submit" class="button">🚀 Start Face Swap</button>
     </form>
-    <p><em>Results saved to <code>~/Desktop/batch_swaps/</code> as JPGs + ZIP</em></p>
-    <div id="progress"></div>
   </div>
-
-  <script>
-    const form = document.getElementById('uploadForm');
-    const progress = document.getElementById('progress');
-
-    form.onsubmit = async (e) => {
-      e.preventDefault();
-      progress.textContent = "Uploading and processing...";
-
-      const formData = new FormData(form);
-      const fileCount = form.template_imgs.files?.length || form.querySelector('input[name="template_imgs"]').files.length;
-
-      const res = await fetch('/batch_swap', {
-        method: 'POST',
-        body: formData
-      });
-
-      if (!res.ok) {
-        progress.textContent = "❌ Error during face swap.";
-        return;
-      }
-
-      const blob = await res.blob();
-      const zipUrl = URL.createObjectURL(blob);
-      progress.innerHTML = `✅ Swapped ${fileCount} / ${fileCount} faces<br><br><a href="${zipUrl}" download="swapped_batch.zip">📦 Download ZIP</a>`;
-    }
-  </script>
 </body>
 </html>
