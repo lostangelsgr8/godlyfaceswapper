@@ -1,8 +1,9 @@
 services:
   - type: web
     name: godlyfaceswapper
-    env: python
+    runtime: python
     buildCommand: pip install -r requirements.txt
-    startCommand: python app.py
-    region: oregon
-    plan: free
+    startCommand: gunicorn app:app
+    envVars:
+      - key: FLASK_ENV
+        value: production
